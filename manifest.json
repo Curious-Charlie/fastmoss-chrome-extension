@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "FastMoss TikTok US Exporter",
+  "description": "Export top FastMoss TikTok US video data for keyword research.",
+  "version": "0.1.0",
+  "action": {
+    "default_title": "FastMoss Exporter"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "scripting",
+    "sidePanel",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.fastmoss.com/*",
+    "https://*.fastmoss.com/*",
+    "https://*.tiktok.com/*",
+    "https://*.tiktokcdn.com/*",
+    "https://*.tiktokcdn-us.com/*",
+    "https://*.byteimg.com/*",
+    "https://*.ibyteimg.com/*"
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.fastmoss.com/*"
+      ],
+      "js": [
+        "content/runner.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "keywords.txt"
+      ],
+      "matches": [
+        "https://www.fastmoss.com/*"
+      ]
+    }
+  ]
+}

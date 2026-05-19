@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FastMoss Exporter</title>
+    <link rel="stylesheet" href="sidepanel.css">
+  </head>
+  <body>
+    <main class="panel">
+      <header class="header">
+        <h1>FastMoss Exporter</h1>
+        <p>Extract the top visible videos for each keyword (7D). One CSV per keyword.</p>
+      </header>
+
+      <section class="section">
+        <label for="keywords">Keywords</label>
+        <textarea id="keywords" spellcheck="false" placeholder="Loading keywords.txt..."></textarea>
+        <div class="row">
+          <button id="loadKeywords" type="button">Reload keywords.txt</button>
+          <button id="clearResults" type="button">Clear results</button>
+        </div>
+      </section>
+
+      <section class="section options">
+        <label class="inline">
+          <span>Minimum views</span>
+          <input id="minViews" type="number" min="0" step="1000" value="100000">
+        </label>
+        <label class="inline">
+          <span>Rows per period</span>
+          <input id="maxRows" type="number" min="1" max="10" step="1" value="3">
+        </label>
+      </section>
+
+      <section class="section">
+        <div class="row primary">
+          <button id="start" type="button">Start</button>
+          <button id="stop" type="button" disabled>Stop</button>
+          <button id="exportCsv" type="button" disabled>Export combined CSV</button>
+        </div>
+      </section>
+
+      <section class="section status">
+        <div class="statusLine">
+          <span id="statusText">Idle</span>
+          <span id="resultCount">0 rows</span>
+        </div>
+        <progress id="progress" max="1" value="0"></progress>
+      </section>
+
+      <section class="section">
+        <h2>Log</h2>
+        <pre id="log"></pre>
+      </section>
+    </main>
+
+    <script type="module" src="sidepanel.js"></script>
+  </body>
+</html>

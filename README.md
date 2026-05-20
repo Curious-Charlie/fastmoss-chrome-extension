@@ -5,7 +5,7 @@ Chrome extension MVP for exporting FastMoss TikTok US video data.
 ## MVP Scope
 
 - Reads keywords from the bundled `keywords.txt`.
-- Runs each keyword for 7D (28D temporarily disabled — re-enable in `sidepanel.js` once 7D is stable).
+- Runs each keyword for 28D
 - Side panel drives navigation directly to the FastMoss results URL with query parameters; the content script only extracts the current page.
 - Detail enrichment is done with a same-origin `fetch` of the FastMoss detail HTML. Any TikTok URL must contain `/video/` to be accepted; `@user` homepages are rejected.
 - Reads only the first N visible rows on the first results page.

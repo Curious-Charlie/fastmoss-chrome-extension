@@ -74,7 +74,7 @@ async function startRun() {
   const maxRows = Number(elements.maxRows.value || 3);
 
   // 28D temporarily disabled per request. Re-add 28 to the list when 7D is stable.
-  const periods = [7];
+  const periods = [28];
   // const periods = [7, 28];
 
   const totalSteps = keywords.length * periods.length;

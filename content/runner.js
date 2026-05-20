@@ -63,6 +63,11 @@
         continue;
       }
 
+      if (parsed.creatorFollowers == null || parsed.creatorFollowers >= 100000) {
+        emit('log', { text: `Skip row ${index + 1}: followers=${parsed.creatorFollowers ?? 'missing'} >= 100k` });
+        continue;
+      }
+
       consumed += 1;
 
       const detailUrl = parsed.detailUrl;
